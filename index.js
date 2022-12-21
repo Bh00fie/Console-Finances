@@ -90,3 +90,8 @@ var finances = [
 // Header of the results
 console.log ("Financial Analysis")
 console.log ("------------------")
+
+// Calculations
+// Total number of months included in the Dataset
+var monthsNumber = finances.length;
+console.log('Total Months: ' + monthsNumber);
