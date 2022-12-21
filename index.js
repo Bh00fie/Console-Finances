@@ -95,3 +95,10 @@ console.log ("------------------")
 // Total number of months included in the Dataset
 var monthsNumber = finances.length;
 console.log('Total Months: ' + monthsNumber);
+
+// The net total amount of Profit/Losses over the entire period
+var totalNumber = finances.reduce(function(accumulator, currentValue) {
+    return accumulator + currentValue[1];
+  }, 0);
+  
+console.log('Total: $' + totalNumber);
