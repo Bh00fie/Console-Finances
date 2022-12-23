@@ -133,3 +133,19 @@ finances.reduce(function(previousValue, currentValue) {
 
 console.log(maxIncrease.amount);
 
+// The greatest decrease in losses (date and amount) over the entire period
+var maxDecrease = {
+  date: '',
+  amount: 0
+};
+
+finances.reduce(function(previousValue, currentValue) {
+  var decrease = previousValue[1] - currentValue[1];
+  if (decrease > maxDecrease.amount) {
+    maxDecrease.date = currentValue[0];
+    maxDecrease.amount = decrease;
+  }
+  return currentValue;
+});
+
+console.log(maxDecrease.amount);
