@@ -131,7 +131,7 @@ finances.reduce(function(previousValue, currentValue) {
   return currentValue;
 });
 
-console.log(maxIncrease.amount);
+console.log("Greatest Increase in Profits: " + maxIncrease.date + " ($" + maxIncrease.amount + ")");
 
 // The greatest decrease in losses (date and amount) over the entire period
 var maxDecrease = {
@@ -148,4 +148,4 @@ finances.reduce(function(previousValue, currentValue) {
   return currentValue;
 });
 
-console.log(maxDecrease.amount);
+console.log("Greatest Decrease in Profits: " + maxDecrease.date + " ($-" + maxDecrease.amount + ")");
