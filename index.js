@@ -102,3 +102,22 @@ var totalNumber = finances.reduce(function(accumulator, currentValue) {
   }, 0);
   
 console.log('Total: $' + totalNumber);
+
+// Average Change
+var changes = finances.map(function(item) {
+    return item[1];
+  });
+  
+  var sum = changes.reduce(function(accumulator, currentValue) {
+    return accumulator + currentValue;
+  }, 0);
+  
+  var average = sum / changes.length;
+  
+  console.log(average);
+
+// The greatest increase in profits (date and amount) over the entire period
+var maxIncrease = {
+  date: '',
+  amount: 0
+};
