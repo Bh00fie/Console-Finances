@@ -114,10 +114,22 @@ var changes = finances.map(function(item) {
   
   var average = sum / changes.length;
   
-  console.log(average);
+  console.log("Average Change: $" + average);
 
 // The greatest increase in profits (date and amount) over the entire period
 var maxIncrease = {
   date: '',
   amount: 0
 };
+
+finances.reduce(function(previousValue, currentValue) {
+  var increase = currentValue[1] - previousValue[1];
+  if (increase > maxIncrease.amount) {
+    maxIncrease.date = currentValue[0];
+    maxIncrease.amount = increase;
+  }
+  return currentValue;
+});
+
+console.log(maxIncrease.amount);
+
