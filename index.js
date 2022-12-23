@@ -96,56 +96,65 @@ console.log ("------------------")
 var monthsNumber = finances.length;
 console.log('Total Months: ' + monthsNumber);
 
+
 // The net total amount of Profit/Losses over the entire period
 var totalNumber = finances.reduce(function(accumulator, currentValue) {
-    return accumulator + currentValue[1];
-  }, 0);
-  
+  return accumulator + currentValue[1];
+}, 0);
+
 console.log('Total: $' + totalNumber);
+
 
 // Average Change
 var changes = finances.map(function(item) {
-    return item[1];
-  });
-  
-  var sum = changes.reduce(function(accumulator, currentValue) {
-    return accumulator + currentValue;
-  }, 0);
-  
-  var average = sum / changes.length;
-  
-  console.log("Average Change: $" + average);
+  return item[1];
+});
+
+var sum = changes.reduce(function(accumulator, currentValue) {
+  return accumulator + currentValue;
+}, 0);
+
+var average = sum / changes.length;
+
+// Round to the nearest houndred
+const roundToHundredth = (average) => {
+  return Number(average.toFixed(2));
+};
+
+console.log("Average Change: $" + roundToHundredth(average));
+
 
 // The greatest increase in profits (date and amount) over the entire period
 var maxIncrease = {
-  date: '',
-  amount: 0
+date: '',
+amount: 0
 };
 
 finances.reduce(function(previousValue, currentValue) {
-  var increase = currentValue[1] - previousValue[1];
-  if (increase > maxIncrease.amount) {
-    maxIncrease.date = currentValue[0];
-    maxIncrease.amount = increase;
-  }
-  return currentValue;
+var increase = currentValue[1] - previousValue[1];
+if (increase > maxIncrease.amount) {
+  maxIncrease.date = currentValue[0];
+  maxIncrease.amount = increase;
+}
+return currentValue;
 });
 
 console.log("Greatest Increase in Profits: " + maxIncrease.date + " ($" + maxIncrease.amount + ")");
 
+
 // The greatest decrease in losses (date and amount) over the entire period
 var maxDecrease = {
-  date: '',
-  amount: 0
+date: '',
+amount: 0
 };
 
 finances.reduce(function(previousValue, currentValue) {
-  var decrease = previousValue[1] - currentValue[1];
-  if (decrease > maxDecrease.amount) {
-    maxDecrease.date = currentValue[0];
-    maxDecrease.amount = decrease;
-  }
-  return currentValue;
+var decrease = previousValue[1] - currentValue[1];
+if (decrease > maxDecrease.amount) {
+  maxDecrease.date = currentValue[0];
+  maxDecrease.amount = decrease;
+}
+return currentValue;
 });
 
 console.log("Greatest Decrease in Profits: " + maxDecrease.date + " ($-" + maxDecrease.amount + ")");
