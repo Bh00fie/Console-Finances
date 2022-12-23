@@ -2,6 +2,8 @@
 
 ## Introduction
 
+Webpage deployed at: https://bh00fie.github.io/Console-Finances/
+
 In this challenge, I'll be using the concepts you've learned to complete the required activity. This activity presents a real-world situation in which your newfound JavaScript skills will come in handy. I am tasked with creating code for analyzing the financial records of a company. I have been provided with a financial dataset in the `starter/index.js` file.
 
 ---
